@@ -1,0 +1,8 @@
+#!/bin/sh
+set -e
+
+: ${WATERFALL_USER:=waterfall}
+: ${WATERFALL_GROUP:=waterfall}
+: ${JAVA_OPTS:=-Xms1G -Xmx2G}
+
+/sbin/su-exec "$WATERFALL_USER":"$WATERFALL_GROUP" /usr/bin/java $JAVA_OPTS -jar /opt/waterfall/Waterfall.jar "$@"
